@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <header class="hero">
+        <h1 class="p-2 has-text-white is-size-3	has-text-centered">Weather Dashboard</h1>
+    </header>
+
+    <div class="columns">
+        <div class="m-2 column is-one-quarter is-flex is-flex-direction-column">
+            <h2 class="is-size-4">Search for a city</h2>
+            <input class="input" id="searchbar" type="text" placeholder="Kansas City" />
+
+            <button type="submit" class="button is-primary" form="form" value="Submit">Submit</button>
+            <div id="pastSearch">
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="column is-three-quarters">
+            <main class="card m-2">
+                Main Content
+                <div class="card-body">
+                    <h5 id="city" class="card-title"></h5>
+                    <p class="card-text">Temperature:<span id="temp"></span></p>
+                    <p class="card-text">Humidity:<span id="humidity"></span></p>
+                    <p class="card-text">Wind Speed:<span id="wind"></span></p>
+                    <p class="card-text">UV Index:<span id="uvindex"></span></p>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+
 
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
