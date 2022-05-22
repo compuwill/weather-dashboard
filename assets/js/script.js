@@ -1,16 +1,43 @@
 var apiKey = "148b1dd83875a9ac2ea73fc528fd06a9"
 var searchCityButton = $("#search")
 
+var searchHistory = [];
+//load history array
+searchHistory = JSON.parse(window.localStorage.getItem('history'));
+if (!searchHistory)
+{
+    searchHistory = [];
+    window.localStorage.setItem('history',JSON.stringify(searchHistory));
+}
+
+//load up all history buttons
+function loadHistory() {
+    $("#pastSearch").empty();
+    console.log(searchHistory);
+    if(searchHistory.length > 0)
+    searchHistory.forEach( element => {
+        var newButton = $("<button>").val(element).addClass("button is-light mt-1").text(element)
+        $("#pastSearch").prepend(newButton);
+        newButton.on("click", null, element,  handleHistory)
+    })
+}
+loadHistory(); //run it
+
 function handleSearch(event) {
     var searchCity =  $("#searchbar").val();
     if(!searchCity) searchCity = 'Kansas City';
     lookUpCity(searchCity);
 
-    var newButton = $("<button>").val(searchCity).addClass("button is-light mt-1").text(searchCity)
-    $("#pastSearch").prepend(newButton);
-    newButton.on("click", null, searchCity,  handleHistory)
-
     console.log(searchCity+' clicked!');
+
+    //add to history
+    if(!searchHistory.includes(searchCity))
+    {
+        searchHistory.push(searchCity);
+        window.localStorage.setItem('history',JSON.stringify(searchHistory));
+        loadHistory();
+    }
+    
 };
 
 function handleHistory(event) {
@@ -102,3 +129,6 @@ function getWeather(lat,lon) {
 }
 
 searchCityButton.on("click", handleSearch)
+
+// by default look up kansas city
+lookUpCity("Kansas City");
