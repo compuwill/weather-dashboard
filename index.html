@@ -10,17 +10,18 @@
 </head>
 
 <body>
-    <header class="hero">
+    <header class="hero" id="main-header">
         <h1 class="p-2 has-text-white is-size-3	has-text-centered">Weather Dashboard</h1>
     </header>
 
     <div class="columns">
-        <div class="m-2 column is-one-quarter is-flex is-flex-direction-column">
+        <div class="m-3 column is-one-quarter is-flex is-flex-direction-column">
             <h2 class="is-size-4">Search for a city</h2>
-            <input class="input" id="searchbar" type="text" placeholder="Kansas City" />
-
-            <button type="submit" class="button is-primary" form="form" value="Submit">Submit</button>
-            <div id="pastSearch">
+            <input class="input my-2" id="searchbar" type="text" placeholder="Kansas City" />
+            <button type="submit" class="button is-primary" form="form" value="Submit" id="search">Submit</button>
+            
+            <h2 class="is-size-4">Search History</h2>
+            <div id="pastSearch" class="is-flex is-flex-direction-column my-2">
 
 
 
@@ -29,23 +30,31 @@
 
         </div>
 
-        <div class="column is-three-quarters">
+        <div class="column is-three-quarters m-3">
             <main class="card m-2">
-                Main Content
-                <div class="card-body">
-                    <h5 id="city" class="card-title"></h5>
-                    <p class="card-text">Temperature:<span id="temp"></span></p>
-                    <p class="card-text">Humidity:<span id="humidity"></span></p>
-                    <p class="card-text">Wind Speed:<span id="wind"></span></p>
-                    <p class="card-text">UV Index:<span id="uvindex"></span></p>
+                <header class="card-header">
+                    <p class="card-header-title"  id="city"></p>
+                    <p class="card-header-title"  id="currentdate"></p>
+                </header>
+                <div class="card-content">
+                    <img class="card-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Card image cap" id="currentimage">
+                    <p class="card-text">Temperature: <span id="temp"></span></p>
+                    <p class="card-text">Humidity: <span id="humidity"></span></p>
+                    <p class="card-text">Wind Speed: <span id="wind"></span></p>
+                    <p class="card-text">UV Index: <span id="uvindex"></span></p>
                 </div>
 
             </main>
+            
+            <article class="columns" id="forecast">
+
+            </article>
         </div>
     </div>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
 

@@ -1,4 +1,24 @@
-header {
+#main-header {
     background-image: linear-gradient(to right,rgb(0, 89, 255), rgb(60, 4, 124));
-    
+
+}
+
+.uv {
+    padding: 0px 3px;
+    border-radius: 5px;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.Low {
+    background-color: lime;
+}
+.Moderate {
+    background-color: yellow;
+}
+.High {
+    background-color: orange;
+}
+.VeryHigh {
+    background-color: red;
 }
